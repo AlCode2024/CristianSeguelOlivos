@@ -17,8 +17,8 @@ tailwind.config = {
         "primary": "#1173d4",
         "background-light": "#f6f7f8",
         "background-dark": "#101922",
-        "text-light": "#101922",            /* == agregado para consistencia */
-        "text-dark": "#f6f7f8",            /* == agregado para consistencia */
+        "text-light": "#101922",
+        "text-dark": "#f6f7f8",
         "text-muted-light": "#56616b",
         "text-muted-dark": "#a0a7af",
         "border-light": "#e5e7eb",
@@ -38,47 +38,37 @@ tailwind.config = {
 .drawer-visible { transform: translateX(0); transition: transform .26s cubic-bezier(.2,.8,.2,1); }
 </style>
 </head>
-<!-- == BODY modificado: añadí clases de texto para igualar la paleta -->
 <body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
 
 <!-- Header -->
 <header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-border-light dark:border-border-dark shadow-md">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
-
-      <!-- Logo -->
       <div class="flex items-center gap-4">
         <a class="flex items-center gap-2 text-text-light dark:text-text-dark" href="index.html">
-           <div class="flex items-center gap-3">
-  <img src="img/logo.png" alt="Logo León Lyon" class="h-8 w-8">
-  <h1 class="text-xl font-bold text-foreground-light dark:text-foreground-dark"></h1>
-</div>
-          <span class="text-xl font-bold">León Lyon Diputado I-44</span>
+          <div class="flex items-center gap-3">
+            <img src="img/logo.png" alt="Logo León Lyon" class="h-8 w-8">
+            <h1 class="text-xl font-bold text-foreground-light dark:text-foreground-dark"></h1>
+          </div>
+          <span class="text-xl font-bold">Cristian Seguel Olivos - i-71</span>
         </a>
       </div>
-
-
-      <!-- Botones y drawer (móvil) -->
       <div class="flex items-center gap-4 md:hidden">
         <button id="btn-open-drawer" aria-controls="drawer" aria-expanded="false" class="p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-primary" aria-label="Abrir menú">
-          <!-- icono hamburguesa -->
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </button>
       </div>
-
-      <!-- (mantengo nav de md en adelante para accesibilidad) -->
       <nav class="hidden md:flex items-center gap-6" aria-label="Menú principal">
         <a class="text-sm font-medium hover:text-primary dark:hover:text-primary" href="index.html">Inicio</a>
         <a class="text-sm font-medium hover:text-primary dark:hover:text-primary" href="propuestas.html">Propuestas</a>
         <a class="text-sm font-medium hover:text-primary dark:hover:text-primary" href="galeria.html">Galería</a>
-        <a class="text-sm font-medium hover:text-primary dark:hover:text-primary" href="compromisos.html">Compromisos</a>
+        <a class="text-sm font-medium hover:text-primary dark:hover:text-primary" href="compromisos.html">Quien Soy?</a>
       </nav>
     </div>
   </div>
 </header>
-
 
 <!-- Drawer -->
 <div id="drawer-root" class="fixed inset-0 z-50 hidden md:hidden" aria-hidden="true">
@@ -87,7 +77,6 @@ tailwind.config = {
     <div class="flex items-center justify-between mb-6">
       <div class="flex items-center gap-3">
         <img src="img/logo.png" alt="Logo León Lyon" class="h-8 w-8">
-
         <h2 class="text-lg font-bold text-foreground-light dark:text-foreground-dark">León Lyon</h2>
       </div>
       <button id="btn-close-drawer" class="p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-primary" aria-label="Cerrar menú">
@@ -98,28 +87,10 @@ tailwind.config = {
       <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Inicio</a>
       <a href="propuestas.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Propuestas</a>
       <a href="galeria.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Galería</a>
-      <a href="compromisos.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Compromisos</a>
+      <a href="compromisos.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Quien Soy?</a>
       <button id="shareBtn" class="p-2 rounded-md bg-primary text-white">
-  Comparte a este candidato
-</button>
-
-<script>
-document.getElementById("shareBtn").addEventListener("click", async () => {
-  if (navigator.share) {
-    try {
-      await navigator.share({
-        title: "León Lyon",
-        text: "Mira que interesante este Candidato",
-        url: "https://leoncandidatov02.vercel.app/"
-      });
-    } catch (err) {
-      console.log("Compartir cancelado", err);
-    }
-  } else {
-    alert("Tu navegador no soporta compartir nativo.");
-  }
-});
-</script>
+        Comparte a este candidato
+      </button>
     </nav>
     <div class="mt-6 text-sm text-foreground-light/60 dark:text-foreground-dark/60">
       <p>© 2025 León Lyon</p>
@@ -128,7 +99,6 @@ document.getElementById("shareBtn").addEventListener("click", async () => {
 </div>
 
 <!-- Main Content -->
-<!-- == CONTAINER padding cambiado a px-4 sm:px-6 lg:px-8 para igualar ancho -->
 <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
   <div class="max-w-4xl mx-auto">
     <div class="text-center mb-12">
@@ -138,6 +108,19 @@ document.getElementById("shareBtn").addEventListener("click", async () => {
       </p>
     </div>
     <div class="space-y-12">
+      <!-- Biography Section -->
+      <div class="bg-background-light dark:bg-background-dark p-8 rounded-xl shadow-lg border border-primary/20">
+        <h3 class="text-2xl font-bold text-foreground-light dark:text-foreground-dark mb-4 section-title">Sobre Cristian Seguel</h3>
+        <p class="text-base text-foreground-light/80 dark:text-foreground-dark/80 leading-relaxed">
+          Cristian Seguel Olivos, de profesión técnico electrónico, hoy pequeño empresario, casado, padre de familia, que conoce de cerca la realidad y las dificultades de quienes luchan día a día por salir adelante. No proviene de una familia con privilegios, pero gracias a su esfuerzo, constancia y empuje logró abrirse camino en el mundo del emprendimiento.
+        </p>
+        <div class="my-6 flex justify-center">
+          <img src="img/D13img71.jpg" alt="Cristian Seguel" class="w-full max-w-md h-auto rounded-lg shadow-md border border-border-light dark:border-border-dark">
+        </div>
+        <p class="text-base text-foreground-light/80 dark:text-foreground-dark/80 leading-relaxed">
+          Hoy, cansado de los abusos e ineficiencias, tanto del Estado como del sector privado, y de cómo se le da la espalda a la gente trabajadora y de esfuerzo, decidió asumir un rol protagónico en política, presentando su candidatura a diputado por el Distrito 13 con el respaldo del Partido de la Gente. Su compromiso es con la Gente, y en el Congreso su rol será claro: fiscalizar con firmeza para que los recursos públicos lleguen realmente a quienes los necesitan, y presentar proyectos de ley enfocados en seguridad, anti corrupción y el apoyo directo a los emprendedores y pequeños empresarios, porque son ellos quienes generan oportunidades, empleo y en definitiva mueven a nuestro país. Cristian Seguel no representa ni a la derecha ni a la izquierda, no representa el pasado, representa el presente y el futuro, a las personas que quieren un Chile más justo, transparente y con igualdad de oportunidades. Su causa es la de miles de familias que buscan progresar con dignidad y trabajo, sin pedir favores ni privilegios.
+        </p>
+      </div>
       <div class="bg-background-light dark:bg-background-dark p-8 rounded-xl shadow-lg border border-primary/20">
         <h3 class="text-2xl font-bold text-foreground-light dark:text-foreground-dark mb-4 section-title">Compromisos</h3>
         <p class="text-base text-foreground-light/80 dark:text-foreground-dark/80 leading-relaxed">
@@ -150,37 +133,41 @@ document.getElementById("shareBtn").addEventListener("click", async () => {
           He coordinado diferentes agrupaciones para lograr proyectos vecinales que mejoran la calidad de vida, como la rehabilitación de parques y la creación de centros comunitarios. Mi experiencia en el servicio público me ha enseñado la importancia del trabajo en equipo y la colaboración para alcanzar metas comunes. Estoy comprometido con seguir sirviendo a mi comunidad con la misma pasión y dedicación.
         </p>
       </div>
-      <a
-  href="https://wa.me/56967668323?text=Hola%20quiero%20más%20información"
-  target="_blank"
-  rel="noopener noreferrer"
-  class="fixed left-3/4 top-3/4 z-50 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center space-y-2"
->
-  <!-- Mensaje -->
-  <span class="bg-green-500 text-white text-sm px-3 py-1 rounded-full shadow-lg">
-    Contáctame
-  </span>
-
-  <!-- Botón -->
-  <div class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="white" class="w-8 h-8">
-      <path d="M16 .667C7.64.667.667 7.64.667 16c0 2.828.76 5.59 2.2 7.997L.667 31.333l7.543-2.133A15.27 15.27 0 0016 31.333c8.36 0 15.333-6.973 15.333-15.333S24.36.667 16 .667zm0 27.2a11.86 11.86 0 01-6.05-1.657l-.433-.257-4.48 1.27 1.197-4.627-.283-.477A11.83 11.83 0 014.133 16c0-6.507 5.36-11.867 11.867-11.867 6.507 0 11.867 5.36 11.867 11.867 0 6.507-5.36 11.867-11.867 11.867zm6.533-8.867c-.36-.18-2.12-1.047-2.453-1.167-.333-.12-.573-.18-.813.18-.24.36-.933 1.167-1.147 1.407-.213.24-.426.27-.787.09-.36-.18-1.52-.56-2.893-1.787-1.07-.953-1.787-2.133-1.993-2.493-.207-.36-.022-.553.158-.733.163-.163.36-.426.54-.64.18-.213.24-.36.36-.6.12-.24.06-.45-.03-.63-.09-.18-.813-1.96-1.113-2.68-.293-.707-.593-.61-.813-.62l-.693-.013c-.24 0-.63.09-.96.45-.33.36-1.26 1.233-1.26 3.013s1.293 3.487 1.473 3.727c.18.24 2.54 3.887 6.16 5.447.86.37 1.527.59 2.047.753.86.273 1.64.233 2.253.142.687-.103 2.12-.867 2.42-1.707.3-.84.3-1.56.21-1.707-.09-.15-.33-.24-.69-.42z"/>
-    </svg>
-  </div>
-</a>
+      <a href="https://wa.me/56967668323?text=Hola%20quiero%20más%20información" target="_blank" rel="noopener noreferrer" class="fixed left-3/4 top-3/4 z-50 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center space-y-2">
+        <span class="bg-green-500 text-white text-sm px-3 py-1 rounded-full shadow-lg">Contáctame</span>
+        <div class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="white" class="w-8 h-8">
+            <path d="M16 .667C7.64.667.667 7.64.667 16c0 2.828.76 5.59 2.2 7.997L.667 31.333l7.543-2.133A15.27 15.27 0 0016 31.333c8.36 0 15.333-6.973 15.333-15.333S24.36.667 16 .667zm0 27.2a11.86 11.86 0 01-6.05-1.657l-.433-.257-4.48 1.27 1.197-4.627-.283-.477A11.83 11.83 0 014.133 16c0-6.507 5.36-11.867 11.867-11.867 6.507 0 11.867 5.36 11.867 11.867 0 6.507-5.36 11.867-11.867 11.867zm6.533-8.867c-.36-.18-2.12-1.047-2.453-1.167-.333-.12-.573-.18-.813.18-.24.36-.933 1.167-1.147 1.407-.213.24-.426.27-.787.09-.36-.18-1.52-.56-2.893-1.787-1.07-.953-1.787-2.133-1.993-2.493-.207-.36-.022-.553.158-.733.163-.163.36-.426.54-.64.18-.213.24-.36.36-.6.12-.24.06-.45-.03-.63-.09-.18-.813-1.96-1.113-2.68-.293-.707-.593-.61-.813-.62l-.693-.013c-.24 0-.63.09-.96.45-.33.36-1.26 1.233-1.26 3.013s1.293 3.487 1.473 3.727c.18.24 2.54 3.887 6.16 5.447.86.37 1.527.59 2.047.753.86.273 1.64.233 2.253.142.687-.103 2.12-.867 2.42-1.707.3-.84.3-1.56.21-1.707-.09-.15-.33-.24-.69-.42z"/>
+          </svg>
+        </div>
+      </a>
     </div>
   </div>
 </main>
 
 <!-- Drawer JS -->
 <script>
-/* Si usas el mismo script inline del ejemplo 1, pega aquí el contenido.
-   Si prefieres cargar externamente, mantén src="js/drawer.js" */
+document.getElementById("shareBtn").addEventListener("click", async () => {
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        title: "Cristian Seguel Olivos - Distrito 13 - i71",
+        text: "Mira que interesante este Candidato",
+        url: "https://leoncandidatov02.vercel.app/"
+      });
+    } catch (err) {
+      console.log("Compartir cancelado", err);
+    }
+  } else {
+    alert("Tu navegador no soporta compartir nativo.");
+  }
+});
+
 (function(){
   const openBtn = document.getElementById('btn-open-drawer');
   const closeBtn = document.getElementById('btn-close-drawer');
-  const drawerRoot = document.getElementById('drawer-root'); // backdrop + drawer wrapper
-  const drawer = document.getElementById('drawer'); // panel
+  const drawerRoot = document.getElementById('drawer-root');
+  const drawer = document.getElementById('drawer');
   const backdrop = document.getElementById('drawer-backdrop');
 
   if(!openBtn || !drawer || !drawerRoot || !backdrop) return;

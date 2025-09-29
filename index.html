@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Cristian Seguel Olivos - Candidato a Diputado - Distrito 13 - vota i-71</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#1173d4",
+                    "background-light": "#f6f7f8",
+                    "background-dark": "#101922",
+                },
+                fontFamily: {
+                    "display": ["Public Sans"]
+                },
+                borderRadius: {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+                },
+            },
+        },
+    }
+</script>
+<style>
+    .gradient-overlay {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+    }
+    /* animación suave para el drawer (izquierda) */
+    .drawer-hidden { transform: translateX(-100%); }
+    .drawer-visible { transform: translateX(0); transition: transform .26s cubic-bezier(.2,.8,.2,1); }
+</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200">
+<div class="flex flex-col min-h-screen">
+<header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-border-light dark:border-border-dark shadow-md">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 text-primary">
+          <!-- icono -->
+       <div class="flex items-center gap-3">
+  <img src="img/logo.png" alt="Cristian Seguel Olivos" class="h-8 w-8">
+  <h1 class="text-xl font-bold text-foreground-light dark:text-foreground-dark"></h1>
+</div>
+
+        </div>
+        <span class="text-xl font-bold">Cristian Seguel Olivos i-71</span>
+      </div>
+
+      <!-- BOTÓN HAMBURGUESA (visible en pantallas pequeñas) -->
+      <!-- Botones y drawer (móvil) -->
+      <div class="flex items-center gap-4 md:hidden">
+        <button id="btn-open-drawer" aria-controls="drawer" aria-expanded="false" class="p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-primary" aria-label="Abrir menú">
+          <!-- icono hamburguesa -->
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- (mantengo nav de md en adelante para accesibilidad) -->
+      <nav class="hidden md:flex items-center gap-6" aria-label="Menú principal">
+        <a class="text-sm font-medium hover:text-primary dark:hover:text-primary" href="index.html">Inicio</a>
+        <a class="text-sm font-medium hover:text-primary dark:hover:text-primary" href="propuestas.html">Propuestas</a>
+        <a class="text-sm font-medium hover:text-primary dark:hover:text-primary" href="galeria.html">Galería</a>
+        <a class="text-sm font-medium hover:text-primary dark:hover:text-primary" href="compromisos.html">Compromisos</a>
+      </nav>
+
+
+</header>
+
+<!-- Drawer -->
+<div id="drawer-root" class="fixed inset-0 z-50 hidden md:hidden" aria-hidden="true">
+  <div id="drawer-backdrop" class="absolute inset-0 bg-black/40 backdrop-blur-sm" tabindex="-1"></div>
+  <aside id="drawer" role="dialog" aria-modal="true" aria-label="Menú principal" class="absolute left-0 top-0 h-full w-72 max-w-full bg-background-light dark:bg-background-dark shadow-xl p-6 drawer-hidden">
+    <div class="flex items-center justify-between mb-6">
+      <div class="flex items-center gap-3">
+        <img src="img/logo.png" alt="Logo Cristian Seguel" class="h-8 w-8">
+        <h2 class="text-lg font-bold text-foreground-light dark:text-foreground-dark">Cristian Seguel</h2>
+      </div>
+      <button id="btn-close-drawer" class="p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-primary" aria-label="Cerrar menú">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-3" aria-label="Enlaces móviles">
+      <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Inicio</a>
+      <a href="propuestas.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Propuestas</a>
+      <a href="galeria.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Galería</a>
+      <a href="compromisos.html" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Compromisos</a>
+      <button id="shareBtn" class="p-2 rounded-md bg-primary text-white">
+  Comparte a este candidato
+</button>
+
+<script>
+document.getElementById("shareBtn").addEventListener("click", async () => {
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        title: "Cristian Seguel Olivos - Candidato a Diputado D13 i-71",
+        text: "Mira que interesante este Candidato",
+        url: "https://leoncandidatov02.vercel.app/"
+      });
+    } catch (err) {
+      console.log("Compartir cancelado", err);
+    }
+  } else {
+    alert("Tu navegador no soporta compartir nativo.");
+  }
+});
+</script>
+
+    </nav>
+    <div class="mt-6 text-sm text-foreground-light/60 dark:text-foreground-dark/60">
+      <p>© 2025 Cristian Seguel Olivos</p>
+    </div>
+  </aside>
+</div>
+
+<main class="flex-grow">
+<section class="relative h-[60vh] min-h-[400px] flex items-center justify-center text-white">
+  <!-- Contenedor para las imágenes -->
+  <div class="absolute inset-0 flex w-full">
+    <!-- Imagen 1: Visible en todas las pantallas -->
+    <div class="w-full md:w-1/3 bg-contain bg-center bg-no-repeat" style='background-image: url("img/D13img71.jpg");'>
+    </div>
+    <!-- Imagen 3: Oculta en móviles, visible en el medio en pantallas grandes -->
+    <div class="hidden md:block w-1/3 bg-contain bg-center bg-no-repeat" style='background-image: url("img/D13img71c.jpg");'>
+    </div>
+    <!-- Imagen 2: Oculta en móviles, visible en pantallas grandes -->
+    <div class="hidden md:block w-1/3 bg-contain bg-center bg-no-repeat" style='background-image: url("img/D13img71b.jpg");'>
+    </div>
+  </div>
+  <!-- Contenido de texto -->
+  <div class="relative z-10 text-center px-4 transform translate-y-[35%]">
+    <!-- <h2 class="text-4xl md:text-6xl font-black tracking-tight leading-tight">Un futuro para todos, ¡juntos lo construimos!</h2>
+    <p class="mt-4 text-lg md:text-xl font-light">Cristian Seguel Olivos, candidato a diputado D13 Vota i-71</p>
+    <button onclick="window.location.href='propuestas.html'" class="mt-8 bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-lg text-base transition-colors">
+      Conoce mis propuestas
+    </button> -->
+  </div>
+</section>
+
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+     <div class="md:col-span-1 bg-background-light dark:bg-background-dark p-6 rounded-xl shadow-lg border border-slate-200 dark:border-slate-800">
+  <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Perfil del Candidato</h3>
+  <div class="space-y-3 text-slate-600 dark:text-slate-400">
+    <p><strong>Nombre:</strong> Cristian Arturo Seguel Olivos</p>
+    <p><strong>Trayectoria:</strong> Técnico Electrónico y emprendedor. No proviene de una familia adinerada; se ha formado con esfuerzo propio.</p>
+    <p><strong>Motivación:</strong> Cansado de las malas prácticas tanto privadas como del Estado, busca representar directamente a la gente de su distrito, con especial foco en los emprendedores y trabajadores.</p>
+    <p><strong>Postura política:</strong> Candidato del Partido de la Gente (PDG). Sin militancias anteriores, ni de izquierda ni de derecha; enfoque ciudadano y pragmático.</p>
+    <p><strong>Rol en el Congreso:</strong> Fiscalizar y proponer proyectos que apoyen a emprendedores, trabajadores independientes y familias de clase media.</p>
+  </div>
+</div>
+
+      <div class="md:col-span-2 space-y-12">
+        <div class="bg-background-light dark:bg-background-dark p-6 rounded-xl shadow-lg border border-slate-200 dark:border-slate-800">
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Propuestas</h3>
+          <p class="mb-6 text-slate-600 dark:text-slate-400">Trabajaremos en propuestas concretas para mejorar la educación, la seguridad y el empleo en nuestra región. ¡Tu voz es importante!</p>
+          <button onclick="window.location.href='propuestas.html'" class="bg-primary/10 hover:bg-primary/20 text-primary font-bold py-2 px-4 rounded-lg text-sm transition-colors dark:bg-primary/20 dark:hover:bg-primary/30">
+            Ver todas las propuestas
+          </button>
+        </div>
+
+        <div class="bg-background-light dark:bg-background-dark p-6 rounded-xl shadow-lg border border-slate-200 dark:border-slate-800">
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Eventos Públicos</h3>
+          <p class="mb-2 font-semibold text-slate-700 dark:text-slate-300">Próximo evento: Todos los viernes en la Plaza Central, 18 horas.</p>
+          <p class="mb-6 text-slate-600 dark:text-slate-400">¡Reunión con vecinos! Te esperamos para compartir ideas y construir juntos un mejor futuro.</p>
+          <button onclick="window.location.href='galeria.html'" class="bg-primary/10 hover:bg-primary/20 text-primary font-bold py-2 px-4 rounded-lg text-sm transition-colors dark:bg-primary/20 dark:hover:bg-primary/30">
+            Ver images de los eventos
+          </button>
+        </div>
+      </div>
+<!-- Redes Sociales -->
+<div class="flex justify-center space-x-8 mt-10">
+  <!-- Facebook -->
+  <a href="https://facebook.com" target="_blank" class="text-[#1877F2] hover:scale-110 transition-transform">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M22.675 0h-21.35C.597 0 0 .597 0 1.326v21.348C0 23.403.597 
+      24 1.326 24H12.82V14.708h-3.42v-3.62h3.42V8.413c0-3.39 
+      2.073-5.238 5.096-5.238 1.45 0 2.695.108 
+      3.057.156v3.55h-2.097c-1.647 0-1.966.784-1.966 
+      1.933v2.54h3.932l-.512 3.62h-3.42V24h6.705C23.403 
+      24 24 23.403 24 22.674V1.326C24 
+      .597 23.403 0 22.675 0z"/>
+    </svg>
+  </a>
+
+  <!-- Instagram -->
+  <a href="https://instagram.com" target="_blank" class="text-[#E4405F] hover:scale-110 transition-transform">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 
+      1.366.062 2.633.35 3.608 1.325.975.975 
+      1.263 2.242 1.325 3.608.058 1.266.07 
+      1.646.07 4.85s-.012 3.584-.07 
+      4.85c-.062 1.366-.35 2.633-1.325 
+      3.608-.975.975-2.242 1.263-3.608 
+      1.325-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.35-3.608-1.325-.975-.975-1.263-2.242-1.325-3.608C2.175 
+      15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.062-1.366.35-2.633 
+      1.325-3.608C4.533 2.583 5.8 2.295 7.166 
+      2.233 8.432 2.175 8.812 2.163 12 
+      2.163zm0 1.687c-3.155 0-3.507.012-4.737.07-1.022.047-1.577.217-1.945.363-.49.19-.84.416-1.21.787-.37.37-.597.72-.787 
+      1.21-.146.368-.316.923-.363 1.945-.058 
+      1.23-.07 1.582-.07 4.737s.012 3.507.07 
+      4.737c.047 1.022.217 1.577.363 
+      1.945.19.49.416.84.787 1.21.37.37.72.597 
+      1.21.787.368.146.923.316 1.945.363 1.23.058 
+      1.582.07 4.737.07s3.507-.012 
+      4.737-.07c1.022-.047 1.577-.217 
+      1.945-.363.49-.19.84-.416 1.21-.787.37-.37.597-.72.787-1.21.146-.368.316-.923.363-1.945.058-1.23.07-1.582.07-4.737s-.012-3.507-.07-4.737c-.047-1.022-.217-1.577-.363-1.945-.19-.49-.416-.84-.787-1.21-.37-.37-.72-.597-1.21-.787-.368-.146-.923-.316-1.945-.363-1.23-.058-1.582-.07-4.737-.07zm0 
+      3.905a5.932 5.932 0 110 11.865 5.932 5.932 0 010-11.865zm0 
+      9.8a3.867 3.867 0 100-7.735 3.867 3.867 0 000 7.735zm6.406-10.845a1.44 
+      1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/>
+    </svg>
+  </a>
+
+  <!-- TikTok -->
+  <a href="https://tiktok.com" target="_blank" class="text-black hover:scale-110 transition-transform">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12.525 2c1.227 1.053 2.74 1.73 4.473 
+      1.73V7.23c-.855-.09-1.68-.33-2.43-.705v7.05c0 
+      2.73-2.22 4.95-4.95 4.95S4.668 16.305 
+      4.668 13.575c0-2.73 2.22-4.95 4.95-4.95.345 
+      0 .675.03 1 .105v2.43c-.315-.105-.66-.165-1-.165-1.38 
+      0-2.52 1.14-2.52 2.52s1.14 2.52 2.52 
+      2.52c1.38 0 2.52-1.14 2.52-2.52V2h1.387z"/>
+    </svg>
+  </a>
+
+  <!-- X (Twitter) -->
+  <a href="https://x.com" target="_blank" class="text-black hover:scale-110 transition-transform">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M18.244 2H21.5l-7.42 8.49L22.5 22h-7.02l-5.46-6.51L4.5 
+      22H1.24l7.92-9.05L1.5 2h7.02l4.98 
+      5.94L18.244 2zm-2.52 18h2.34L8.27 
+      4h-2.34l9.79 16z"/>
+    </svg>
+  </a>
+</div>
+
+     <!-- Botón WhatsApp siempre en el centro del viewport -->
+<a
+  href="https://wa.me/56967668323?text=Hola%20quiero%20más%20información"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="fixed left-3/4 top-3/4 z-50 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center space-y-2"
+>
+  <!-- Mensaje -->
+  <span class="bg-green-500 text-white text-sm px-3 py-1 rounded-full shadow-lg">
+    Contáctame
+  </span>
+
+  <!-- Botón -->
+  <div class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="white" class="w-8 h-8">
+      <path d="M16 .667C7.64.667.667 7.64.667 16c0 2.828.76 5.59 2.2 7.997L.667 31.333l7.543-2.133A15.27 15.27 0 0016 31.333c8.36 0 15.333-6.973 15.333-15.333S24.36.667 16 .667zm0 27.2a11.86 11.86 0 01-6.05-1.657l-.433-.257-4.48 1.27 1.197-4.627-.283-.477A11.83 11.83 0 014.133 16c0-6.507 5.36-11.867 11.867-11.867 6.507 0 11.867 5.36 11.867 11.867 0 6.507-5.36 11.867-11.867 11.867zm6.533-8.867c-.36-.18-2.12-1.047-2.453-1.167-.333-.12-.573-.18-.813.18-.24.36-.933 1.167-1.147 1.407-.213.24-.426.27-.787.09-.36-.18-1.52-.56-2.893-1.787-1.07-.953-1.787-2.133-1.993-2.493-.207-.36-.022-.553.158-.733.163-.163.36-.426.54-.64.18-.213.24-.36.36-.6.12-.24.06-.45-.03-.63-.09-.18-.813-1.96-1.113-2.68-.293-.707-.593-.61-.813-.62l-.693-.013c-.24 0-.63.09-.96.45-.33.36-1.26 1.233-1.26 3.013s1.293 3.487 1.473 3.727c.18.24 2.54 3.887 6.16 5.447.86.37 1.527.59 2.047.753.86.273 1.64.233 2.253.142.687-.103 2.12-.867 2.42-1.707.3-.84.3-1.56.21-1.707-.09-.15-.33-.24-.69-.42z"/>
+    </svg>
+  </div>
+</a>
+
+
+    </div>
+    
+  </div>
+</main>
+
+<footer class="bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-slate-800">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-sm text-slate-500 dark:text-slate-400">
+    <p>© 2025 Cristian Seguel Olivos - i71 - Distrito 13</p>
+  </div>
+</footer>
+</div>
+
+<!-- Drawer JS -->
+<script src="js/drawer.js"></script>
+</body>
+</html>

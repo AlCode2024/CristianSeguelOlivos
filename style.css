@@ -1,0 +1,224 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header */
+header {
+    background: linear-gradient(to right, #002366, #003399);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    position: relative;
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+.lema {
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
+/* Botón hamburguesa */
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 1.5rem;
+    right: 1rem;
+}
+
+/* Drawer */
+#drawer {
+    display: flex;
+    justify-content: center;
+}
+
+#drawer ul {
+    display: flex;
+    list-style: none;
+}
+
+#drawer ul li {
+    margin: 0.5rem 1rem;
+}
+
+#drawer ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#drawer ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Overlay */
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 900;
+    transition: opacity 0.3s ease;
+}
+
+/* Secciones */
+section {
+    padding: 2rem 1rem;
+    background: white;
+    margin: 1rem auto;
+    max-width: 1000px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+    margin-bottom: 1rem;
+    color: #002366;
+}
+
+/* Galería */
+.galeria-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.galeria-container img {
+    width: 250px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Ideas */
+.ideas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+/* Redes sociales */
+.redes img {
+    width: 40px;
+    margin: 0.5rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #002366;
+    color: white;
+}
+
+/* Banner Slider */
+#banner {
+    width: 100%;
+    height: 60vh;
+    max-height: 600px;
+    min-height: 200px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #002366; /* Fondo oscuro para mejor contraste */
+}
+
+.slider-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Cambiado de cover a contain para evitar recortes */
+    object-position: center; /* Centra la imagen */
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 0;
+}
+
+.slider-container img.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Responsivo */
+@media(max-width: 768px) {
+    nav ul {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    #drawer {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 250px;
+        height: 100%;
+        background: #002366;
+        flex-direction: column;
+        padding-top: 4rem;
+        transition: left 0.3s ease;
+        z-index: 1000;
+    }
+
+    #drawer ul {
+        flex-direction: column;
+        text-align: left;
+    }
+
+    #drawer ul li {
+        margin: 1rem 0;
+        padding-left: 1rem;
+    }
+
+    #drawer.open {
+        left: 0;
+    }
+
+    #overlay.active {
+        display: block;
+    }
+
+    .galeria-container img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Responsivo: pantallas pequeñas */
+@media(max-width: 400px) {
+    #banner {
+        height: 40vh;
+        min-height: 150px;
+    }
+}

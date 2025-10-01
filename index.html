@@ -208,20 +208,21 @@ document.getElementById("shareBtn").addEventListener("click", async () => {
   </p>
 
   <!-- Botón Descargar -->
-  <a href="files/Parisi2026.pdf" download
-    class="block bg-primary/10 hover:bg-primary/20 text-primary font-bold py-2 px-4 rounded-lg text-sm transition-colors dark:bg-primary/20 dark:hover:bg-primary/30 border border-blue-400 w-full text-center">
-    Descargar Programa de Gobierno en PDF
-  </a>
+<a href="https://storage.googleapis.com/parisipresidente/programa%20de%20gobierno/programa-de-gobierno-parisi-presidente-2026.pdf" download
+  class="block bg-primary/10 hover:bg-primary/20 text-primary font-bold py-2 px-4 rounded-lg text-sm transition-colors dark:bg-primary/20 dark:hover:bg-primary/30 border border-blue-400 w-full text-center">
+  Descargar Programa de Gobierno en PDF
+</a>
 
-  <!-- Botón Compartir -->
-  <button onclick="navigator.share ? navigator.share({ 
-      title: 'Programa de Gobierno PARISI 2026', 
-      text: 'Descarga el programa de gobierno de Parisi 2026 aquí:', 
-      url: window.location.origin + '/files/Parisi2026.pdf' 
-    }) : alert('Copia y comparte este enlace: ' + window.location.origin + '/files/Parisi2026.pdf')"
-    class="mt-3 block bg-primary/10 hover:bg-primary/20 text-primary font-bold py-2 px-4 rounded-lg text-sm transition-colors dark:bg-primary/20 dark:hover:bg-primary/30 border border-blue-400 w-full text-center">
-    Compartir Programa
-  </button>
+<!-- Botón Compartir -->
+<button onclick="navigator.share ? navigator.share({ 
+    title: 'Programa de Gobierno PARISI 2026', 
+    text: 'Descarga el programa de gobierno de Parisi 2026 aquí:', 
+    url: 'https://storage.googleapis.com/parisipresidente/programa%20de%20gobierno/programa-de-gobierno-parisi-presidente-2026.pdf' 
+  }) : alert('Copia y comparte este enlace: https://storage.googleapis.com/parisipresidente/programa%20de%20gobierno/programa-de-gobierno-parisi-presidente-2026.pdf')"
+  class="mt-3 block bg-primary/10 hover:bg-primary/20 text-primary font-bold py-2 px-4 rounded-lg text-sm transition-colors dark:bg-primary/20 dark:hover:bg-primary/30 border border-blue-400 w-full text-center">
+  Compartir Programa
+</button>
+
 
 </div>
 

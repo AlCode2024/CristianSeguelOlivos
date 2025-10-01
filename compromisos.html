@@ -76,8 +76,8 @@ tailwind.config = {
   <aside id="drawer" role="dialog" aria-modal="true" aria-label="Menú principal" class="absolute left-0 top-0 h-full w-72 max-w-full bg-background-light dark:bg-background-dark shadow-xl p-6 drawer-hidden">
     <div class="flex items-center justify-between mb-6">
       <div class="flex items-center gap-3">
-        <img src="img/logo.png" alt="Logo León Lyon" class="h-8 w-8">
-        <h2 class="text-lg font-bold text-foreground-light dark:text-foreground-dark">León Lyon</h2>
+        <img src="img/logo.png" alt="Logo Cristian Seguel" class="h-8 w-8">
+        <h2 class="text-lg font-bold text-foreground-light dark:text-foreground-dark">Cristian Seguel</h2>
       </div>
       <button id="btn-close-drawer" class="p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-primary" aria-label="Cerrar menú">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -93,7 +93,7 @@ tailwind.config = {
       </button>
     </nav>
     <div class="mt-6 text-sm text-foreground-light/60 dark:text-foreground-dark/60">
-      <p>© 2025 León Lyon</p>
+      <p>© 2025 Cristian Seguel</p>
     </div>
   </aside>
 </div>
@@ -153,7 +153,7 @@ document.getElementById("shareBtn").addEventListener("click", async () => {
       await navigator.share({
         title: "Cristian Seguel Olivos - Distrito 13 - i71",
         text: "Mira que interesante este Candidato",
-        url: "https://leoncandidatov02.vercel.app/"
+        url: "https://https://cristianseguel.vercel.app"
       });
     } catch (err) {
       console.log("Compartir cancelado", err);
